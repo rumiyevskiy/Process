@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+            document.documentElement.style.display = 'none';
+            document.head.insertAdjacentHTML(
+                'beforeend',
+                '<link rel="stylesheet" href="css/light.css" onload="document.documentElement.style.display = \'\'">',
+            );
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="return__btn hidden">
+        <img class="icon-button-arrow-1" src="./img/icon-button-arrow-10.svg" />
+    </div>
+
+    <div class="wrapper">
+
+        <header class="header">
+
+            <div class="header__body">
+
+                <a href="#" class="header__logo logo"></a>
+
+                <div class="header__menu">
+
+                    <div class="header__menu-icon icon burger">
+
+                        <span></span>
+
+                    </div>
+
+                    <nav class="header__menu-body">
+
+                        <ul class="header__menu-list">
+
+                            <li>
+
+                                <a data-goto='.page__section-1' href="#" class="header__menu-item">Розділ 1</a>
+
+                            </li>
+
+                            <li>
+
+                                <a data-goto='.page__section-2' href="#" class="header__menu-item">Розділ 2</a>
+
+                            </li>
+
+                            <li>
+
+                                <a data-goto='.page__section-3' href="#" class="header__menu-item">Розділ 3</a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="#" class="header__menu-item">Сторінка 2</a>
+
+                                <span class="header__menu-item-arrow"></span>
+
+                                <ul class="header__menu-sub-list">
+
+                                    <li>
+
+                                        <a href="#" class="header__menu-sub-item">Розділ 1 Сторінки 2</a>
+        
+                                    </li>
+                                    <li>
+
+                                        <a href="#" class="header__menu-sub-item">Розділ 2 Сторінки 2</a>
+        
+                                    </li>
+                                    <li>
+
+                                        <a href="#" class="header__menu-sub-item">Розділ 3 Сторінки 2</a>
+        
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+
+                                <a  data-goto='.footer' href="#" class="header__menu-item">Footer</a>
+
+                            </li>
+
+                            <li>
+
+                                <div class="header__menu-icon icon lang">
+
+                                    <span></span>
+            
+                                </div>
+
+                                <div class="header__menu-icon icon theme">
+
+                                    <!-- <span></span> -->
+
+                                    <fieldset class="switcher">
+
+                                        <legend class="switcher__legend">Схема</legend>
+
+                                        <input type="radio" class="switcher__radio switcher__radio--light" name="color-scheme" value="light" aria-label="Світла">
+
+                                        <input type="radio" class="switcher__radio switcher__radio--auto" name="color-scheme" value="auto" aria-label="Системна" checked>
+
+                                        <input type="radio" class="switcher__radio switcher__radio--dark" name="color-scheme" value="dark" aria-label="Темна">
+
+                                        <div class="switcher__status"></div>
+                                        
+                                    </fieldset>
+            
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                        
+
+                    </nav>
+                    
+                </div>
+
+            </div>
+
+        </header>
+
+        <main class="main">            
+
+            <section class="page__section conteiner page__section-1">
+
+                <div class="page__section-box">
+
+                    <div class="box-content">
+
+                        <h2 class="page__section-title">Conversion NH3 and CO2 into Urea in Reactor</h2>
+                        <h2 class="page__section-title">Kavasumi-Lemkovich</h2>
+
+                        <div class="page__section-form">
+
+                            <form action="" class="form">
+
+                                <div class="form-item">
+
+                                    <label class="item-label" for="pSynthesis">P synthesis</label>
+
+                                    <input class="item-input" type="text" placeholder="P synthesis, bar" name="pSynthesis" value="">
+
+                                </div>
+
+                                <div class="form-item">
+
+                                    <label class="item-label" for="l">L liquid (NH3:CO2)</label>
+
+                                    <input class="item-input" type="text" placeholder="L liquid (NH3:CO2)" name="l" value="">
+
+                                </div>
+
+                                <div class="form-item">
+
+                                    <label class="item-label" for="w">W liquid (H2O:CO2)</label>
+
+                                    <input class="item-input" type="text" placeholder="W liquid (H2O:CO2)" name="w" value="">
+
+                                </div>
+
+                                <div class="form-item">
+
+                                    <label class="item-label" for="pInertsPercent">P INERTS (0%..8%)</label>
+
+                                    <input class="item-input" type="text" placeholder="P INERTS (0%..8%)" name="pInertsPercent" value="">
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="page__section-text">
+                            <p>-----------Urea Reactor---Mat. Balance---</p>
+                            
+                            <p class="output-text"></p>
+                            <p class="output-text2"></p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- <div class="box-img">
+
+                        <img src="./img/400x600.jpg"  width="600" height="300"alt="section-1">
+
+                    </div>                     -->
+
+                </div>
+
+                
+
+            </section>
+    
+        </main>
+    
+        <footer class="footer">Footer</footer>
+
+    </div>   
+    
+    
+    <script type="module" src="./script/script.js"></script>
+</body>
+</html>
