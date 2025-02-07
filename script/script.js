@@ -259,13 +259,13 @@ let ps = pSynthesis * (1 - (pInertsPercent / 100));
 
 
 let knr1 = -0.01 * pInertsPercent + 0.86;
-console.log('knr1: ', knr1);
+// console.log('knr1: ', knr1);
 
 let knr2 = 0.1395 * l + 0.3024;
-console.log('knr2: ', knr2);
+// console.log('knr2: ', knr2);
 
 let knr = (knr1 >= knr2) ? knr1 : knr2;
-console.log('knr: ', knr);
+// console.log('knr: ', knr);
 
 let dp = 100;
 
@@ -316,8 +316,6 @@ let firstCicleIteration = 0;
 while (dp > 0.1) {
 
   let msg1 = `Ітерація: ${firstCicleIteration}`;
-  // alert(msg1);
-  // console.log("перший цикл. ітерація: ", firstCicleIteration);
 
   t += 0.01;
 
@@ -341,9 +339,11 @@ while (dp > 0.1) {
 
   k2 = k2 * knr;
 
+
   let k4 = Math.pow(10, (3566.154 / (t + 273) - 5.8));
 
   let k3 = k2 / k4;
+  // console.log('k3: ', k3);
 
   // Ітераційний цикл для досягнення збіжності C та X
   let converged = false;
@@ -378,9 +378,8 @@ while (dp > 0.1) {
       const y22 = -poly + (a + b + z + d);
       const y = y11 / y22;
       
-      let msg2 = `c: ${c}, q: ${q}, y: ${Math.abs(y)}, y11: ${y11}, y22: ${y22}`;
+      // let msg2 = `c: ${c}, q: ${q}, y: ${Math.abs(y)}, y11: ${y11}, y22: ${y22}`;
       c = q - y;
-      // alert(msg2);
       q = c;
       
       // Якщо значення полінома дорівнює нулю або зміна дуже мала, виходимо з внутрішнього циклу
@@ -397,18 +396,6 @@ while (dp > 0.1) {
 
 
       // Якщо не збіжилось, цикл повторюється автоматично
-      // let msg3 = `check1: ${(Math.abs(a * Math.pow(c, 3) + b * Math.pow(c, 2) + z * c + d))}`;
-      // alert(msg3);
-      // alert(innerConverged);
-      // let msgcicles = `Ітерація: ${firstCicleIteration}\n
-      //               c: ${c},
-      //               q: ${q}, 
-      //               y: ${Math.abs(y)}, 
-      //               y11: ${y11}, 
-      //               y22: ${y22}
-      //               check1: ${(Math.abs(a * Math.pow(c, 3) + b * Math.pow(c, 2) + z * c + d))}
-      //               `;
-      // el.innerHTML = msgcicles;
     }
     
     // Блок "4": перевірка збіжності C та X
@@ -427,7 +414,8 @@ while (dp > 0.1) {
 
     // Розрахунок балансу (молярних часток)
     // Використовуємо X, яке отримано в ітераціях (можна використовувати X1, що дорівнює X після збіжності)
-    const n = l + x + w + 2 * c - 1;
+  const n = l + x + w + 2 * c - 1;
+  // console.log('n: ', n);
     nnb = (x + w) / n;
     nna = (l - 2 * (1 - c)) / n;
     nnm = x / n;
@@ -448,7 +436,7 @@ while (dp > 0.1) {
     
     // Обчислюємо різницю між розрахованим тиском та заданим значенням
   dp = Math.abs(p - ps);
-  console.log('dp: ', dp);
+  // console.log('dp: ', dp);
     
     // Цикл while( DP > 0.1 ) продовжиться, якщо DP не менше за 0.1
 
@@ -497,7 +485,8 @@ let wgas = h2o / co2;
 let PINert = pSynthesis - p;
 
 let msgtotal = `<pre>
-Входные данные:
+Вхідні данні:
+-------------
 
 P synthesis:        ${pSynthesis}
 
@@ -509,7 +498,17 @@ P INERTS (0%..8%):  ${pInertsPercent}
 
 T = ${t.toFixed(2)}
 
-Выходные данные:
+
+Проміжні данні:
+---------------
+
+KNR = ${knr}
+
+Ітерацій: ${firstCicleIteration}
+
+
+Вихідні данні:
+--------------
 
 P Synthesis = ${pSynthesis} bar
 
@@ -539,7 +538,7 @@ H2O =  ${(wb * 100).toFixed(2)}   ${(h2o * 100).toFixed(2)}
 L(gas) = ${lgas.toFixed(2)} 
 W(gas) = ${wgas.toFixed(2)} 
 
-Ітерація: ${firstCicleIteration}
+
 </pre>`;
 
 
