@@ -388,8 +388,6 @@ while (dp > 0.1) {
     } else {
       converged = true; // збіжність досягнута
     }
-
-    console.log("c0:", c);
     
   }
 
@@ -422,12 +420,8 @@ while (dp > 0.1) {
 
     
   // Цикл while( DP > 0.1 ) продовжиться, якщо DP не менше за 0.1
-  
-  console.log("c1:", c);
 
 }
-
-console.log("c2:", c);
 
 // Обчислення молекулярного балансу
 let np = 1 + l + w - x;
