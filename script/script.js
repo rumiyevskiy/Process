@@ -452,7 +452,7 @@ let g = gm + gb + gc + gk + ga;
 
 let m = gm / g;
 let b = gb / g;
-let c_liq = gc / g;
+c = gc / g;
 let k = gk / g;
 let a = ga / g;
 
