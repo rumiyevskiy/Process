@@ -239,57 +239,8 @@ ibg();
 
 const el = document.querySelector('.output-text');
 const el2 = document.querySelector('.output-text2');
+
 // розрахунки
-
-// данні по замовчуванню
-
-// P synthesis, bar
-let pSynthesis = 140;
-
-// L liquid (NH3:CO2)
-let l = 2.85;
-
-// W liquid (H2O:CO2)
-let w = 0.47;
-
-// P INERTS (0%..8%) (PIN%)
-let pInertsPercent = 8;
-
-let ps = pSynthesis * (1 - (pInertsPercent / 100));
-
-
-let knr1 = -0.01 * pInertsPercent + 0.86;
-// console.log('knr1: ', knr1);
-
-let knr2 = 0.1395 * l + 0.3024;
-// console.log('knr2: ', knr2);
-
-let knr = (knr1 >= knr2) ? knr1 : knr2;
-// console.log('knr: ', knr);
-
-let dp = 100;
-
-// *************************************************
-
-// основний варіант
-
-let kpa = 1.09;
-
-let kpc = 0.65;
-
-let kpb = 1.2;
-
-// *************************************************
-// інший варіант
-
-// let kpa = 0.21;
-
-// let kpc = 2.09;
-
-// let kpb = 1.5;
-
-// *************************************************
-
 
 let t = 140;
 let x;
@@ -311,6 +262,46 @@ let nnk;
 let nnb;
 let wc;
 
+// данні по замовчуванню
+
+// P synthesis, bar
+let pSynthesis = 140;
+
+// L liquid (NH3:CO2)
+let l = 2.85;
+
+// W liquid (H2O:CO2)
+let w = 0.47;
+
+// P INERTS (0%..8%) (PIN%)
+let pInertsPercent = 8;
+
+let ps = pSynthesis * (1 - (pInertsPercent / 100));
+
+
+let knr1 = -0.01 * pInertsPercent + 0.86;
+
+
+let knr2 = 0.1395 * l + 0.3024;
+
+
+let knr = (knr1 >= knr2) ? knr1 : knr2;
+
+
+let dp = 100;
+
+// *************************************************
+
+// основний варіант
+
+let kpa = 1.09;
+
+let kpc = 0.65;
+
+let kpb = 1.2;
+
+// *************************************************
+
 let firstCicleIteration = 0;
 
 while (dp > 0.1) {
@@ -323,7 +314,8 @@ while (dp > 0.1) {
 
   let hc = (59.88 * t - 6976.67) * kpc;
 
-  let pa0 = (10 ^ (5.48 - 1400 / (t + 273))) * kpa;
+  // let pa0 = (10 ^ (5.48 - 1400 / (t + 273))) * kpa;
+  let pa0 = (Math.pow(10, (5.48 - 1400 / (t + 273)))) * kpa;
 
   let c1 = 0;
 
@@ -331,11 +323,8 @@ while (dp > 0.1) {
 
   let r = 1;
 
-  // let c = 0.0000001;
-
-  // let q = 0.0000001;
-
   let k2 = Math.pow(10, (2331.19 / (t + 273) - 3.305));
+
 
   k2 = k2 * knr;
 
@@ -343,11 +332,9 @@ while (dp > 0.1) {
   let k4 = Math.pow(10, (3566.154 / (t + 273) - 5.8));
 
   let k3 = k2 / k4;
-  // console.log('k3: ', k3);
 
   // Ітераційний цикл для досягнення збіжності C та X
   let converged = false;
-  // let x; // оголошуємо X, щоб використовувати пізніше при балансі
 
   while (!converged) {
 
@@ -378,7 +365,6 @@ while (dp > 0.1) {
       const y22 = -poly + (a + b + z + d);
       const y = y11 / y22;
       
-      // let msg2 = `c: ${c}, q: ${q}, y: ${Math.abs(y)}, y11: ${y11}, y22: ${y22}`;
       c = q - y;
       q = c;
       
@@ -390,11 +376,6 @@ while (dp > 0.1) {
       if (Math.abs(y) <= 0.00001) {
         innerConverged = true;
       }
-      // if (Math.abs(a * Math.pow(c, 3) + b * Math.pow(c, 2) + z * c + d) < 1e-12 || Math.abs(y) <= 0.00001) {
-      //   innerConverged = true;
-      // }
-
-
       // Якщо не збіжилось, цикл повторюється автоматично
     }
     
@@ -407,6 +388,8 @@ while (dp > 0.1) {
     } else {
       converged = true; // збіжність досягнута
     }
+
+    console.log("c0:", c);
     
   }
 
@@ -415,7 +398,7 @@ while (dp > 0.1) {
     // Розрахунок балансу (молярних часток)
     // Використовуємо X, яке отримано в ітераціях (можна використовувати X1, що дорівнює X після збіжності)
   const n = l + x + w + 2 * c - 1;
-  // console.log('n: ', n);
+
     nnb = (x + w) / n;
     nna = (l - 2 * (1 - c)) / n;
     nnm = x / n;
@@ -424,23 +407,27 @@ while (dp > 0.1) {
     
     // Обчислення часткових тисків компонентів
   pb = pb0 * nnb;
-  // console.log('pb: ', pb);
+
   pco2 = hc * nnc;
-  // console.log('pco2: ', pco2);
+
   pnh3 = pa0 * nna;
-  // console.log('pnh3: ', pnh3);
+
     
     // Загальний тиск
   p = pb + pco2 + pnh3;
-  // console.log('p: ', p);
+
     
     // Обчислюємо різницю між розрахованим тиском та заданим значенням
   dp = Math.abs(p - ps);
-  // console.log('dp: ', dp);
+
     
-    // Цикл while( DP > 0.1 ) продовжиться, якщо DP не менше за 0.1
+  // Цикл while( DP > 0.1 ) продовжиться, якщо DP не менше за 0.1
+  
+  console.log("c1:", c);
 
 }
+
+console.log("c2:", c);
 
 // Обчислення молекулярного балансу
 let np = 1 + l + w - x;
@@ -476,7 +463,6 @@ let h2o = pb / p;
 let wg = nh3 * 17 + co2 * 44 + h2o * 18;
 let wa = 17 * nh3 / wg;
 wc = 44 * co2 / wg;
-// console.log("pb: ", pb);
 let wb = 18 * h2o / wg;
 
 let lgas = nh3 / co2;
@@ -520,7 +506,7 @@ L = ${l}
 
 W = ${w}
 
-X(conversion, Liquid) = ${x.toFixed(2)} %
+X(conversion, Liquid) = ${(x * 100).toFixed(2)} %
 
 Liquid, %:   MASS    MOL    MASS    MOL
 CO(NH2)2 =  ${(m * 100).toFixed(2)}  ${(nnm * 100).toFixed(2)}   ${(wmp * 100).toFixed(2)}   ${(nmp * 100).toFixed(2)}
