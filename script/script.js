@@ -235,6 +235,141 @@ function ibg(){
   
 ibg();
 
+// *************************************************************************************************
+ 
+// перемикання мов
+
+const translations = {};
+
+const currentLanguage = document.querySelectorAll(".current-language");
+
+const languageSwitcher = document.querySelector(".language");
+
+const languageOptions = document.querySelector(".language-options");
+
+ const browserLanguage = navigator.language || navigator.userLanguage;
+
+ let browsLangVar;
+
+ if (browserLanguage.startsWith('uk')) {
+     browsLangVar = "uk";
+   } else if (browserLanguage.startsWith('de')) {
+     browsLangVar = "de";
+   } else {
+     browsLangVar = "en";
+ }
+ 
+ const loadLanguage = async (lang) => {
+     try {
+         const response = await fetch(`./languages/${lang}.json`);
+         const responseUKR = await fetch(`./languages/uk.json`);
+
+         Object.assign(translations, await response.json());
+         
+
+         const translationsUKR = await responseUKR.json();
+         
+         document.querySelectorAll("[data-translate]").forEach(el => {
+             const key = el.getAttribute("data-translate");
+             el.textContent = translations[key];
+             el.placeholder = translations[key]; 
+            
+         });
+
+
+         document.querySelectorAll("#select_services option").forEach(el => {
+             const elValue = el.getAttribute("value");
+             const key = el.getAttribute("data-translate");
+
+             if (elValue != null) {
+
+                 el.value = translations[key];
+
+                 optionValueTypeServicesArr[key] = translationsUKR[key];
+             }               
+             
+         });
+
+
+     } catch (error) {
+         console.error("Error loading language:", error);
+     }
+ };
+
+ 
+ const toggleLanguageOptions = (event) => {
+     languageOptions.style.display = languageOptions.style.display === "block" ? "none" : "block";
+ };
+
+
+ 
+ const switchLanguage = (lang) => {
+
+     localStorage.setItem("selectedLanguage", lang);
+
+     let langvar;
+     
+     if (lang === "en") {
+         langvar = "Eng";
+     } else if (lang === "de") {
+         langvar = "Deu";
+     } else {
+         langvar = "Ukr";
+     };
+
+     for (let index = 0; index < currentLanguage.length; index++) {
+         currentLanguage[index].textContent = langvar;
+     }
+   
+     loadLanguage(lang).then(() => {
+         languageOptions.style.display = "none";
+     });
+ };
+
+ 
+ const selectedLanguage = localStorage.getItem("selectedLanguage") || browsLangVar;
+
+ let selLangvar;
+
+ if (selectedLanguage === "en") {
+     selLangvar = "Eng";
+ } else if (selectedLanguage === "de") {
+     selLangvar = "Deu";
+ } else {
+     selLangvar = "Ukr";
+ };
+
+ for (let index = 0; index < currentLanguage.length; index++) {
+     currentLanguage[index].textContent = selLangvar;
+ }
+
+ loadLanguage(selectedLanguage);
+
+ languageSwitcher.addEventListener("click", toggleLanguageOptions);
+
+ languageOptions.addEventListener("click", (event) => {
+     if (event.target.getAttribute("data-lang")) {
+         switchLanguage(event.target.getAttribute("data-lang"));
+     }
+ });
+
+
+ 
+ document.addEventListener("click", (event) => {
+     if (!languageSwitcher.contains(event.target)) {
+         languageOptions.style.display = "none";
+     }
+ });
+
+ 
+//  document.addEventListener("click", (event) => {
+//      if (!languageSwitcherMob.contains(event.target)) {
+//          languageOptionsMob.style.display = "none";
+//      }
+//  });
+
+
+
 // *************************************************
 
 const el = document.querySelector('.output-text');
