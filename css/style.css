@@ -133,7 +133,7 @@ body.__lock {
 .widget.lang .arrow-down {
   transition: all 0.3s ease 0s;
 }
-.widget.lang .arrow-down.__active {
+.widget.lang .arrow-down__active {
   transform: rotate(180deg);
 }
 .widget.lang .current-language {
@@ -467,6 +467,57 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 .page__section-1 {
   background-color: #6637d3;
 }
+.page__section-1 .page__section-form {
+  border: 1px solid #000000;
+  width: 40%;
+  margin: 10px auto;
+  padding: 15px;
+}
+@media (max-width: 1200px) {
+  .page__section-1 .page__section-form {
+    width: 50%;
+  }
+}
+@media (max-width: 992px) {
+  .page__section-1 .page__section-form {
+    width: 70%;
+  }
+}
+@media (max-width: 768px) {
+  .page__section-1 .page__section-form {
+    width: auto;
+  }
+}
+.page__section-1 .page__section-form .form-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+.page__section-1 .page__section-form .form-item .item-label {
+  padding-block: 10px;
+}
+.page__section-1 .page__section-form .form-item .item-input {
+  padding: 10px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  outline: 2px solid transparent;
+}
+.page__section-1 .page__section-form .form-item .item-input:focus {
+  outline-color: #000000;
+  outline-offset: 3px;
+}
+.page__section-1 .page__section-form .form-item.form__buttons {
+  justify-content: space-around;
+}
+.page__section-1 .page__section-form .form-item.form__buttons .form__buttons-item {
+  border-radius: 24px;
+  border: 1px solid #000;
+  padding: 8px 12px;
+  width: 80px;
+}
+
 .footer {
   background-color: #008000;
 }
