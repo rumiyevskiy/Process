@@ -117,8 +117,12 @@ body {
 
                 &:hover {
                     background: #f1f1f1;
-            border-radius: 8px;
+                    border-radius: 8px;
                 }
+            }
+
+            &.visible {
+                display: block
             }
         }
 

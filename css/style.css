@@ -162,6 +162,9 @@ body.__lock {
   background: #f1f1f1;
   border-radius: 8px;
 }
+.widget.lang .language-options.visible {
+  display: block;
+}
 .widget.theme {
   position: relative;
   width: 100px;

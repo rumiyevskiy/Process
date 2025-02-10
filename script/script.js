@@ -239,135 +239,184 @@ ibg();
  
 // перемикання мов
 
-const translations = {};
+// const translations = {};
 
-const currentLanguage = document.querySelectorAll(".current-language");
+// const currentLanguage = document.querySelectorAll(".current-language");
 
-const languageSwitcher = document.querySelector(".language");
+// const languageSwitcher = document.querySelector(".language");
 
-const languageOptions = document.querySelector(".language-options");
+// const languageOptions = document.querySelector(".language-options");
 
- const browserLanguage = navigator.language || navigator.userLanguage;
+//  const browserLanguage = navigator.language || navigator.userLanguage;
 
- let browsLangVar;
+//  let browsLangVar;
 
- if (browserLanguage.startsWith('uk')) {
-     browsLangVar = "uk";
-   } else if (browserLanguage.startsWith('de')) {
-     browsLangVar = "de";
-   } else {
-     browsLangVar = "en";
- }
+//  if (browserLanguage.startsWith('uk')) {
+//      browsLangVar = "uk";
+//    } else if (browserLanguage.startsWith('de')) {
+//      browsLangVar = "de";
+//    } else {
+//      browsLangVar = "en";
+//  }
  
- const loadLanguage = async (lang) => {
-     try {
-         const response = await fetch(`./languages/${lang}.json`);
-         const responseUKR = await fetch(`./languages/uk.json`);
+//  const loadLanguage = async (lang) => {
+//      try {
+//          const response = await fetch(`./languages/${lang}.json`);
+//          const responseUKR = await fetch(`./languages/uk.json`);
 
-         Object.assign(translations, await response.json());
+//          Object.assign(translations, await response.json());
          
 
-         const translationsUKR = await responseUKR.json();
+//          const translationsUKR = await responseUKR.json();
          
-         document.querySelectorAll("[data-translate]").forEach(el => {
-             const key = el.getAttribute("data-translate");
-             el.textContent = translations[key];
-             el.placeholder = translations[key]; 
+//          document.querySelectorAll("[data-translate]").forEach(el => {
+//              const key = el.getAttribute("data-translate");
+//              el.textContent = translations[key];
+//              el.placeholder = translations[key]; 
             
-         });
+//          });
 
 
-         document.querySelectorAll("#select_services option").forEach(el => {
-             const elValue = el.getAttribute("value");
-             const key = el.getAttribute("data-translate");
-
-             if (elValue != null) {
-
-                 el.value = translations[key];
-
-                 optionValueTypeServicesArr[key] = translationsUKR[key];
-             }               
-             
-         });
-
-
-     } catch (error) {
-         console.error("Error loading language:", error);
-     }
- };
+//      } catch (error) {
+//          console.error("Error loading language:", error);
+//      }
+//  };
 
  
- const toggleLanguageOptions = (event) => {
-     languageOptions.style.display = languageOptions.style.display === "block" ? "none" : "block";
- };
+//  const toggleLanguageOptions = (event) => {
+//      languageOptions.style.display = languageOptions.style.display === "block" ? "none" : "block";
+//  };
 
 
  
- const switchLanguage = (lang) => {
+//  const switchLanguage = (lang) => {
 
-     localStorage.setItem("selectedLanguage", lang);
+//      localStorage.setItem("selectedLanguage", lang);
 
-     let langvar;
+//      let langvar;
      
-     if (lang === "en") {
-         langvar = "Eng";
-     } else if (lang === "de") {
-         langvar = "Deu";
-     } else {
-         langvar = "Ukr";
-     };
+//      if (lang === "en") {
+//          langvar = "Eng";
+//      } else if (lang === "de") {
+//          langvar = "Deu";
+//      } else {
+//          langvar = "Ukr";
+//      };
 
-     for (let index = 0; index < currentLanguage.length; index++) {
-         currentLanguage[index].textContent = langvar;
-     }
+//      for (let index = 0; index < currentLanguage.length; index++) {
+//          currentLanguage[index].textContent = langvar;
+//      }
    
-     loadLanguage(lang).then(() => {
-         languageOptions.style.display = "none";
-     });
- };
+//      loadLanguage(lang).then(() => {
+//          languageOptions.style.display = "none";
+//      });
+//  };
 
  
- const selectedLanguage = localStorage.getItem("selectedLanguage") || browsLangVar;
+//  const selectedLanguage = localStorage.getItem("selectedLanguage") || browsLangVar;
 
- let selLangvar;
+//  let selLangvar;
 
- if (selectedLanguage === "en") {
-     selLangvar = "Eng";
- } else if (selectedLanguage === "de") {
-     selLangvar = "Deu";
- } else {
-     selLangvar = "Ukr";
- };
+//  if (selectedLanguage === "en") {
+//      selLangvar = "Eng";
+//  } else if (selectedLanguage === "de") {
+//      selLangvar = "Deu";
+//  } else {
+//      selLangvar = "Ukr";
+//  };
 
- for (let index = 0; index < currentLanguage.length; index++) {
-     currentLanguage[index].textContent = selLangvar;
- }
+//  for (let index = 0; index < currentLanguage.length; index++) {
+//      currentLanguage[index].textContent = selLangvar;
+//  }
 
- loadLanguage(selectedLanguage);
+//  loadLanguage(selectedLanguage);
 
- languageSwitcher.addEventListener("click", toggleLanguageOptions);
+//  languageSwitcher.addEventListener("click", toggleLanguageOptions);
 
- languageOptions.addEventListener("click", (event) => {
-     if (event.target.getAttribute("data-lang")) {
-         switchLanguage(event.target.getAttribute("data-lang"));
-     }
- });
-
-
- 
- document.addEventListener("click", (event) => {
-     if (!languageSwitcher.contains(event.target)) {
-         languageOptions.style.display = "none";
-     }
- });
-
- 
-//  document.addEventListener("click", (event) => {
-//      if (!languageSwitcherMob.contains(event.target)) {
-//          languageOptionsMob.style.display = "none";
+//  languageOptions.addEventListener("click", (event) => {
+//      if (event.target.getAttribute("data-lang")) {
+//          switchLanguage(event.target.getAttribute("data-lang"));
 //      }
 //  });
 
+
+ 
+//  document.addEventListener("click", (event) => {
+//      if (!languageSwitcher.contains(event.target)) {
+//          languageOptions.style.display = "none";
+//      }
+//  });
+
+// *************************************************
+
+  let translations = {}; 
+
+  const currentLanguage = document.querySelectorAll(".current-language");
+  const languageSwitcher = document.querySelector(".language");
+  const languageOptions = document.querySelector(".language-options");
+  const browserLanguage = navigator.language || navigator.userLanguage;
+
+  const getLangShort = (lang) => {
+      const langMap = { en: "Eng", de: "Deu", uk: "Ukr" };
+      return langMap[lang] || "Eng";
+  };
+
+  const browsLangVar = browserLanguage.startsWith("uk") ? "uk" : 
+                      browserLanguage.startsWith("de") ? "de" : "en";
+
+  const loadLanguage = async (lang) => {
+      try {
+          translations = {}; // Очищення попередніх перекладів
+
+          const response = await fetch(`./languages/${lang}.json`);
+          Object.assign(translations, await response.json());
+
+          let translationsUKR = {};
+          if (lang !== "uk") {
+              const responseUKR = await fetch(`./languages/uk.json`);
+              translationsUKR = await responseUKR.json();
+          }
+
+          document.querySelectorAll("[data-translate]").forEach(el => {
+              const key = el.getAttribute("data-translate");
+              el.textContent = translations[key] || key;
+              el.placeholder = translations[key] || "";
+          });
+
+      } catch (error) {
+          console.error("Error loading language:", error);
+      }
+  };
+
+  const toggleLanguageOptions = () => {
+      languageOptions.classList.toggle("visible");
+  };
+
+  const switchLanguage = (lang) => {
+      localStorage.setItem("selectedLanguage", lang);
+      currentLanguage.forEach(el => el.textContent = getLangShort(lang));
+
+      loadLanguage(lang).then(() => {
+          languageOptions.classList.remove("visible");
+      });
+  };
+
+  const selectedLanguage = localStorage.getItem("selectedLanguage") || browsLangVar;
+  currentLanguage.forEach(el => el.textContent = getLangShort(selectedLanguage));
+  loadLanguage(selectedLanguage);
+
+  languageSwitcher.addEventListener("click", toggleLanguageOptions);
+
+  languageOptions.addEventListener("click", (event) => {
+      const lang = event.target.getAttribute("data-lang");
+      if (lang) switchLanguage(lang);
+  });
+
+  document.addEventListener("click", (event) => {
+      if (!languageSwitcher.contains(event.target) && !languageOptions.contains(event.target)) {
+          languageOptions.classList.remove("visible");
+      }
+  });
 
 
 // *************************************************
