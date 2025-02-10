@@ -2,25 +2,6 @@
 
 // identify device
 
-// if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//     document.body.classList.add('__touch');
-//   } else {
-//     document.body.classList.add('__pc');
-// };
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const body = document.body;
-  
-//     // Перевірка наявності тачскріна
-//     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  
-//     if (isTouchDevice) {
-//         document.body.classList.add('__touch');
-//     } else {
-//         document.body.classList.add('__pc');
-//     }
-//   });
-
 const isMobile = {
     Android: function () {
       return navigator.userAgent.match(/Android/i);  
@@ -352,6 +333,7 @@ ibg();
   let translations = {}; 
 
   const currentLanguage = document.querySelectorAll(".current-language");
+  const languageArrow = document.querySelector(".arrow-down");
   const languageSwitcher = document.querySelector(".language");
   const languageOptions = document.querySelector(".language-options");
   const browserLanguage = navigator.language || navigator.userLanguage;
@@ -371,12 +353,6 @@ ibg();
           const response = await fetch(`./languages/${lang}.json`);
           Object.assign(translations, await response.json());
 
-          let translationsUKR = {};
-          if (lang !== "uk") {
-              const responseUKR = await fetch(`./languages/uk.json`);
-              translationsUKR = await responseUKR.json();
-          }
-
           document.querySelectorAll("[data-translate]").forEach(el => {
               const key = el.getAttribute("data-translate");
               el.textContent = translations[key] || key;
@@ -390,6 +366,7 @@ ibg();
 
   const toggleLanguageOptions = () => {
       languageOptions.classList.toggle("visible");
+      languageArrow.classList.toggle("__active");
   };
 
   const switchLanguage = (lang) => {
@@ -498,7 +475,6 @@ while (dp > 0.1) {
 
   let hc = (59.88 * t - 6976.67) * kpc;
 
-  // let pa0 = (10 ^ (5.48 - 1400 / (t + 273))) * kpa;
   let pa0 = (Math.pow(10, (5.48 - 1400 / (t + 273)))) * kpa;
 
   let c1 = 0;

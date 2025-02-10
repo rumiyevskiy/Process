@@ -83,6 +83,16 @@ body {
             width: 80px;
             background: #fff;
         }
+
+        .arrow-down {
+            transition: all 0.3s ease 0s;
+
+            &__active {
+                transform: rotate(180deg);
+            }
+        }
+
+        .arrow-down.
         
         .current-language {
             color: #000;
@@ -125,12 +135,6 @@ body {
                 display: block
             }
         }
-
-        
-        // .language-options .language-options__item:hover {
-        //     background: #f1f1f1;
-        //     border-radius: 8px;
-        // }
     }
 
     &.theme {

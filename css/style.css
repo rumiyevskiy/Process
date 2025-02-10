@@ -130,6 +130,12 @@ body.__lock {
   width: 80px;
   background: #fff;
 }
+.widget.lang .arrow-down {
+  transition: all 0.3s ease 0s;
+}
+.widget.lang .arrow-down.__active {
+  transform: rotate(180deg);
+}
 .widget.lang .current-language {
   color: #000;
   font-size: var(--btn-text-font-size, 16px);
