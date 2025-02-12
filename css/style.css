@@ -511,12 +511,18 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 .page__section-1 .page__section-form .form-item.form__buttons {
   justify-content: space-around;
+  flex-direction: row;
 }
 .page__section-1 .page__section-form .form-item.form__buttons .form__buttons-item {
   border-radius: 24px;
   border: 1px solid #000;
   padding: 8px 12px;
   min-width: 80px;
+}
+@media (max-width: 480px) {
+  .page__section-1 .page__section-form .form-item {
+    flex-direction: column;
+  }
 }
 .page__section-1 .subtitle {
   font-weight: 600;

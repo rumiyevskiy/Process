@@ -586,6 +586,7 @@ body {
 
             &.form__buttons {
                 justify-content: space-around;
+                flex-direction: row;
 
                 .form__buttons-item {
                     border-radius: 24px;
@@ -593,6 +594,10 @@ body {
                     padding: 8px 12px;
                     min-width: 80px;
                 }
+            }
+
+            @include rmax($xs) {
+                flex-direction: column;
             }
         }
     }
