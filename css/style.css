@@ -458,14 +458,15 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 .page__section-text {
   font-size: 16px;
+  color: var(--mainTxtClr);
+  text-align: center;
 }
 .page__section-text p {
   padding: 0 0 10px 0;
-  color: var(--mainTxtClr);
 }
 
 .page__section-1 {
-  background-color: #6637d3;
+  background-color: #6c6975;
 }
 .page__section-1 .page__section-form {
   border: 1px solid #000000;
@@ -515,7 +516,24 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   border-radius: 24px;
   border: 1px solid #000;
   padding: 8px 12px;
-  width: 80px;
+  min-width: 80px;
+}
+.page__section-1 .subtitle {
+  font-weight: 600;
+  text-decoration: underline;
+}
+.page__section-1 .table-container {
+  margin-block: 10px;
+  width: 100%;
+  overflow-x: auto;
+}
+.page__section-1 .table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+.page__section-1 .table th, .page__section-1 .table td {
+  padding: 8px;
+  border: 1px solid black;
 }
 
 .footer {

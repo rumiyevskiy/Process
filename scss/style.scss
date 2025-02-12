@@ -528,16 +528,17 @@ body {
 
     &-text {
         font-size: 16px;
+        color: var(--mainTxtClr);
+        text-align: center;
     
         p {
-            padding: 0 0 10px 0;
-            color: var(--mainTxtClr);
+            padding: 0 0 10px 0;            
         }
     }
 }
 
 .page__section-1 {
-    background-color: #6637d3;
+    background-color: #6c6975;
 
     .page__section-form {
         border: 1px solid #000000;
@@ -590,11 +591,37 @@ body {
                     border-radius: 24px;
                     border: 1px solid #000;
                     padding: 8px 12px;
-                    width: 80px;
+                    min-width: 80px;
                 }
             }
         }
     }
+
+    .subtitle {
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
+    .table-container {
+        margin-block: 10px;        
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        // display: block;
+        margin: 0 auto;
+        border-collapse: collapse;
+
+        // text-align: center;
+
+        th, td {
+            padding: 8px;
+            border: 1px solid black;
+          }
+    }
+
+
 }
 
 
