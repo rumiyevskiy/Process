@@ -458,7 +458,6 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 .page__section-text {
   font-size: 16px;
-  color: var(--mainTxtClr);
   text-align: center;
 }
 .page__section-text p {
@@ -470,13 +469,17 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   background-image: url("../img/Urea_Reactor.png");
   background-repeat: no-repeat;
   background-size: auto 400px;
-  background-position: left 10% top;
+  background-position: left 10% top 50px;
+  padding-bottom: 50px;
+  color: var(--mainTxtClr);
+}
+.page__section-1 .box-content {
+  background-color: rgba(108, 105, 117, 0.5725490196);
 }
 .page__section-1 .page__section-form {
-  background-color: rgba(108, 105, 117, 0.6549019608);
   border: 1px solid #000000;
   width: 40%;
-  margin: 10px auto;
+  margin: 50px auto;
   padding: 15px;
 }
 @media (max-width: 1200px) {
