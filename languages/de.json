@@ -5,10 +5,12 @@
     "uk": "Uk",
     "en": "En",
     "de": "De",
-
+    "home": "Home",
     "сontacts": "Kontakte",
 
     "section-1__subtitle-1": "Umwandlung von NH3 und CO2 in Harnstoff im Reaktor",
+
+    "substance": "Substanz",
     "btn__reset": "zurücksetzen",
     "btn__submit": "einreichen"
     }

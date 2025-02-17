@@ -302,6 +302,17 @@ body.__lock {
   height: 40px;
 }
 
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+.socials__ico {
+  width: 30px;
+  margin: 10px;
+}
+
 .header {
   background-color: var(--headerBgColor);
   position: fixed;
