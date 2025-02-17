@@ -467,7 +467,7 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 
 .page__section-1 .page__section-box {
   background-color: #6c6975;
-  background-image: url("./img/Urea_Reactor.png");
+  background-image: url("../img/Urea_Reactor.png");
   background-repeat: no-repeat;
   background-size: auto 400px;
   background-position: left 10% top;
