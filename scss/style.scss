@@ -209,7 +209,7 @@ body {
             }
 
             .switcher__radio--light {
-                background-image: url('../img/sun_icon.svg');
+                background-image: url('../img/icons/sun_icon.svg');
 
                 &:checked ~ .switcher__status {
                     background-position: left 0px center;
@@ -217,7 +217,7 @@ body {
             }
 
             .switcher__radio--auto {
-                background-image: url('../img/circle_icon.svg');
+                background-image: url('../img/icons/circle_icon.svg');
 
                 &:checked ~ .switcher__status {
                     background-position: center center;
@@ -225,7 +225,7 @@ body {
             }
 
             .switcher__radio--dark {
-                background-image: url('../img/moon_icon.svg');
+                background-image: url('../img/icons/moon_icon.svg');
 
                 &:checked ~ .switcher__status {
                     background-position: right 0px center;
@@ -246,7 +246,7 @@ body {
                 border-radius: 18px;
                 background-color: rgb(255 255 255 / 0.5);
                 background-repeat: no-repeat;
-                background-image: url('../img/circle_full_icon.svg');
+                background-image: url('../img/icons/circle_full_icon.svg');
                 background-size: 32px;
                 background-position: center;
                 transition: background-position 0.1s ease-in;

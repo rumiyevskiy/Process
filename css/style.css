@@ -210,19 +210,19 @@ body.__lock {
   outline: none;
 }
 .widget.theme .switcher__radio--light {
-  background-image: url("../img/sun_icon.svg");
+  background-image: url("../img/icons/sun_icon.svg");
 }
 .widget.theme .switcher__radio--light:checked ~ .switcher__status {
   background-position: left 0px center;
 }
 .widget.theme .switcher__radio--auto {
-  background-image: url("../img/circle_icon.svg");
+  background-image: url("../img/icons/circle_icon.svg");
 }
 .widget.theme .switcher__radio--auto:checked ~ .switcher__status {
   background-position: center center;
 }
 .widget.theme .switcher__radio--dark {
-  background-image: url("../img/moon_icon.svg");
+  background-image: url("../img/icons/moon_icon.svg");
 }
 .widget.theme .switcher__radio--dark:checked ~ .switcher__status {
   background-position: right 0px center;
@@ -239,7 +239,7 @@ body.__lock {
   border-radius: 18px;
   background-color: rgba(255, 255, 255, 0.5);
   background-repeat: no-repeat;
-  background-image: url("../img/circle_full_icon.svg");
+  background-image: url("../img/icons/circle_full_icon.svg");
   background-size: 32px;
   background-position: center;
   transition: background-position 0.1s ease-in;
