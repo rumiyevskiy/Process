@@ -537,10 +537,20 @@ body {
     }
 }
 
-.page__section-1 {
-    background-color: #6c6975;
+.page__section-1 {    
+
+    .page__section-box {
+        background-color: #6c6975;
+
+        background-image: url('/img/Urea_Reactor.png');
+        background-repeat: no-repeat;
+        background-size: auto 400px;
+        background-position: left 10% top;
+
+    }
 
     .page__section-form {
+        background-color: #6c6975a7;
         border: 1px solid #000000;
         width: 40%;
         margin: 10px auto;
