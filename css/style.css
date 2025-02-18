@@ -302,15 +302,21 @@ body.__lock {
   height: 40px;
 }
 
-.socials {
+.socials, .links {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   z-index: 10;
+  gap: 10px;
 }
-.socials__ico {
-  width: 30px;
-  margin: 10px;
+.socials__icon-link, .links__icon-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.socials__icon-link .socials__icon-title, .links__icon-link .socials__icon-title {
+  font-size: 20px;
 }
 
 .header {
@@ -454,7 +460,17 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 .main {
   background-color: #e6b2b2;
   flex: 1 1 auto;
-  padding: 70px 10px 10px 10px;
+  padding: 100px 10px 10px 10px;
+}
+@media (max-width: 1200px) {
+  .main {
+    padding: 190px 10px 10px 10px;
+  }
+}
+@media (max-width: 992px) {
+  .main {
+    padding: 260px 10px 10px 10px;
+  }
 }
 
 .page__section {
