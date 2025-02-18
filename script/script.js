@@ -120,103 +120,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // перемикання кольорових схем
 
-  const lightStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=light]');
-  const darkStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]');
-  const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
-  const switcherRadios = document.querySelectorAll('.switcher__radio');
+  // const lightStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=light]');
+  // const darkStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]');
+  // const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
+  // const switcherRadios = document.querySelectorAll('.switcher__radio');
 
-  function setupSwitcher() {
-    const savedScheme = getSavedScheme();
+  // function setupSwitcher() {
+  //   const savedScheme = getSavedScheme();
 
-    if (savedScheme !== null) {
-      const currentRadio = document.querySelector(`.switcher__radio[value=${savedScheme}]`);
-      currentRadio.checked = true;
-    };
+  //   if (savedScheme !== null) {
+  //     const currentRadio = document.querySelector(`.switcher__radio[value=${savedScheme}]`);
+  //     currentRadio.checked = true;
+  //   };
 
-    [...switcherRadios].forEach((radio) => {
-      radio.addEventListener('change', (event) => {
-        setScheme(event.target.value);
-      });
-    });
-  };
+  //   [...switcherRadios].forEach((radio) => {
+  //     radio.addEventListener('change', (event) => {
+  //       setScheme(event.target.value);
+  //     });
+  //   });
+  // };
 
-  function setupScheme() {
-    const savedScheme = getSavedScheme();
-    const systemScheme = getSystemScheme();
+  // function setupScheme() {
+  //   const savedScheme = getSavedScheme();
+  //   const systemScheme = getSystemScheme();
 
-    if (savedScheme === null) return;
+  //   if (savedScheme === null) return;
 
-    if (savedScheme !== systemScheme) {
-      setScheme(savedScheme);
-    };
-  };
+  //   if (savedScheme !== systemScheme) {
+  //     setScheme(savedScheme);
+  //   };
+  // };
 
-  function setScheme(scheme) {
-    switchMedia(scheme);
+  // function setScheme(scheme) {
+  //   switchMedia(scheme);
 
-    if (scheme === 'auto') {
-      clearScheme();
-    } else {
-      saveScheme(scheme);
-    };
-  };
+  //   if (scheme === 'auto') {
+  //     clearScheme();
+  //   } else {
+  //     saveScheme(scheme);
+  //   };
+  // };
 
-  function switchMedia(scheme) {
-    let lightMedia;
-    let darkMedia;
+  // function switchMedia(scheme) {
+  //   let lightMedia;
+  //   let darkMedia;
 
-    if (scheme === 'auto') {
-      lightMedia = '(prefers-color-scheme: light)';
-      darkMedia = '(prefers-color-scheme: dark)';
-    } else {
-      lightMedia = (scheme === 'light') ? 'all' : 'not all';
-      darkMedia = (scheme === 'dark') ? 'all' : 'not all';
-    };
+  //   if (scheme === 'auto') {
+  //     lightMedia = '(prefers-color-scheme: light)';
+  //     darkMedia = '(prefers-color-scheme: dark)';
+  //   } else {
+  //     lightMedia = (scheme === 'light') ? 'all' : 'not all';
+  //     darkMedia = (scheme === 'dark') ? 'all' : 'not all';
+  //   };
 
-    [...lightStyles].forEach((link) => {
-      link.media = lightMedia;
-    });
+  //   [...lightStyles].forEach((link) => {
+  //     link.media = lightMedia;
+  //   });
 
-    [...darkStyles].forEach((link) => {
-      link.media = darkMedia;
-    });
+  //   [...darkStyles].forEach((link) => {
+  //     link.media = darkMedia;
+  //   });
       
-  };
+  // };
 
-  function getSystemScheme() {
-    const darkScheme = darkSchemeMedia.matches;
+  // function getSystemScheme() {
+  //   const darkScheme = darkSchemeMedia.matches;
 
-    return darkScheme ? 'dark' : 'light';
-  };
+  //   return darkScheme ? 'dark' : 'light';
+  // };
 
-  function getSavedScheme() {
-    return localStorage.getItem('color-scheme');
-  };
+  // function getSavedScheme() {
+  //   return localStorage.getItem('color-scheme');
+  // };
 
-  function saveScheme(scheme) {
-    return localStorage.setItem('color-scheme', scheme);
-  };
+  // function saveScheme(scheme) {
+  //   return localStorage.setItem('color-scheme', scheme);
+  // };
 
-  function clearScheme() {
-    return localStorage.removeItem('color-scheme');
-  };
+  // function clearScheme() {
+  //   return localStorage.removeItem('color-scheme');
+  // };
 
-  setupSwitcher();
-  setupScheme();
+  // setupSwitcher();
+  // setupScheme();
 
-  // для Інтернет експлорера
+  // // для Інтернет експлорера
 
-  function ibg() {
+  // function ibg() {
 
-    let ibg = document.querySelectorAll(".ibg");
-    for (var i = 0; i < ibg.length; i++) {
-      if (ibg[i].querySelector('img')) {
-        ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
-      }
-    }
-  }
+  //   let ibg = document.querySelectorAll(".ibg");
+  //   for (var i = 0; i < ibg.length; i++) {
+  //     if (ibg[i].querySelector('img')) {
+  //       ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
+  //     }
+  //   }
+  // }
       
-  ibg();
+  // ibg();
 
   // *************************************************************************************************
     

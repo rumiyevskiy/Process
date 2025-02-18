@@ -72,6 +72,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+:root {
+  --headerBgColor: #7d7d7d;
+  --headerMenuItemTxtClr: #ffffff;
+  --headerIconBgClr: #ffffff;
+  --mainTxtClr: #ffffff;
+}
+
 body {
   height: 100%;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
