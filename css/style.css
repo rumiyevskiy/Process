@@ -303,12 +303,14 @@ body.__lock {
 }
 
 .socials, .links {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   z-index: 10;
   gap: 10px;
+  margin-right: 20px;
 }
 .socials__icon-link, .links__icon-link {
   display: flex;
@@ -317,6 +319,24 @@ body.__lock {
 }
 .socials__icon-link .socials__icon-title, .links__icon-link .socials__icon-title {
   font-size: 20px;
+}
+.socials .block, .links .block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.socials .block p, .links .block p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+@media (max-width: 1200px) {
+  .socials, .links {
+    margin-right: 0;
+    justify-content: center;
+  }
 }
 
 .header {
@@ -342,7 +362,7 @@ body.__lock {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 100px 30px 30px 30px;
+    padding: 270px 30px 30px 30px;
     transition: left 0.3s ease 0s;
     overflow: auto;
   }
@@ -352,7 +372,7 @@ body.__lock {
     width: 100%;
     top: 0;
     left: 0;
-    height: 70px;
+    height: 260px;
     z-index: 2;
     background-color: var(--headerBgColor);
   }
@@ -372,7 +392,7 @@ body.__lock {
 }
 .header__menu-list .header__menu-item {
   color: var(--headerMenuItemTxtClr);
-  font-size: 18px;
+  font-size: 20px;
 }
 .header__menu-list .header__menu-item:hover {
   text-decoration: underline;
@@ -458,7 +478,7 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 
 .main {
-  background-color: #e6b2b2;
+  background-color: #d8d8d8;
   flex: 1 1 auto;
   padding: 100px 10px 10px 10px;
 }
@@ -492,37 +512,36 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 
 .page__section-1 .page__section-box {
-  background-color: #6c6975;
-  background-image: url("../img/Urea_Reactor.png");
-  background-repeat: no-repeat;
-  background-size: auto 400px;
-  background-position: left 10% top 50px;
   padding-bottom: 50px;
-  color: var(--mainTxtClr);
+  color: #000000;
 }
 .page__section-1 .box-content {
-  background-color: rgba(108, 105, 117, 0.5725490196);
+  background-color: rgba(216, 216, 216, 0.353);
+}
+.page__section-1 .page__section-description {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.2;
 }
 .page__section-1 .page__section-form {
   border: 1px solid #000000;
-  width: 40%;
-  margin: 50px auto;
+  margin: 10px auto;
   padding: 15px;
-}
-@media (max-width: 1200px) {
-  .page__section-1 .page__section-form {
-    width: 50%;
-  }
-}
-@media (max-width: 992px) {
-  .page__section-1 .page__section-form {
-    width: 70%;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .page__section-1 .page__section-form {
-    width: auto;
+    flex-direction: column-reverse;
   }
+}
+.page__section-1 .page__section-form .form-img {
+  max-width: 100%;
+}
+.page__section-1 .page__section-form .form-img img {
+  width: 100%;
 }
 .page__section-1 .page__section-form .form-item {
   display: flex;
@@ -530,6 +549,8 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   align-items: center;
   justify-content: space-between;
   padding: 15px 30px;
+  gap: 10px;
+  font-size: 20px;
 }
 .page__section-1 .page__section-form .form-item .item-label {
   padding-block: 10px;
@@ -539,6 +560,7 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   border: 1px solid currentColor;
   border-radius: 3px;
   outline: 2px solid transparent;
+  font-size: 20px;
 }
 .page__section-1 .page__section-form .form-item .item-input:focus {
   outline-color: #000000;
@@ -553,11 +575,15 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   border: 1px solid #000;
   padding: 8px 12px;
   min-width: 80px;
+  font-size: 20px;
 }
 @media (max-width: 480px) {
   .page__section-1 .page__section-form .form-item {
     flex-direction: column;
   }
+}
+.page__section-1 .page__section-text {
+  font-size: 20px;
 }
 .page__section-1 .subtitle {
   font-weight: 600;
@@ -567,6 +593,10 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   margin-block: 10px;
   width: 100%;
   overflow-x: auto;
+}
+.page__section-1 .liquid-table th:nth-child(3),
+.page__section-1 .liquid-table td:nth-child(3) {
+  border-right: double 6px black; /* Подвійна межа між 3 і 4 стовпцями */
 }
 .page__section-1 .table {
   margin: 0 auto;
@@ -578,5 +608,17 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
 }
 
 .footer {
-  background-color: #008000;
+  background-color: #727272;
+  padding-block: 20px;
+}
+.footer .footer__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer .socials {
+  max-width: 120px;
+  justify-content: space-around;
 }

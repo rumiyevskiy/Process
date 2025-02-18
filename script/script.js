@@ -711,27 +711,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // **********************************************************
         
-    const data = {
-      "P synthesis = ": pSynthesis,
-      "P INERTS (0%..8%) = ": PINert.toFixed(2),
-      "P NH3+CO2+H2O = ": p.toFixed(2),
+    const dataLiq = {
+      "P synthesis = ": `${pSynthesis} bar`,
+      "P INERTS (0%..8%) = ": `${PINert.toFixed(2)} bar`,
+      "P NH3+CO2+H2O = ": `${p.toFixed(2)} bar`,
       "L = ": l,
       "W = ": w,
       "X (conversion, Liquid) =": `${(x * 100).toFixed(2)} %`,
-      "T = ": t.toFixed(2),
+      "T = ": `${t.toFixed(2)} \u00B0С`,
+    };
+
+    const dataGas = {
       "L(gas) = ": lgas.toFixed(2),
       "W(gas) = ": wgas.toFixed(2),
     };
       
-    const liquidData = [
+    const liquidDataTab = [
       ["CO(NH2)2", (m * 100).toFixed(2), (nnm * 100).toFixed(2), (wmp * 100).toFixed(2),  (nmp * 100).toFixed(2)],
       ["CO2", (c * 100).toFixed(2), (nnc * 100).toFixed(2), (wcp * 100).toFixed(2), (ncp * 100).toFixed(2)],
       ["NH3", (a * 100).toFixed(2), (nna * 100).toFixed(2), (wap * 100).toFixed(2), (nap * 100).toFixed(2)],
-      ["NH2COONH4", (k * 100).toFixed(2), (nnk * 100).toFixed(2), "wkp", "nkp"],
+      ["NH2COONH4", (k * 100).toFixed(2), (nnk * 100).toFixed(2), "-", "-"],
       ["H2O", (b * 100).toFixed(2), (nnb * 100).toFixed(2), (wbp * 100).toFixed(2), (nbp * 100).toFixed(2)]
     ];
 
-    const gasData = [
+    const gasDataTab = [
       ["CO2", (wc * 100).toFixed(2), (co2 * 100).toFixed(2)],
       ["NH3", (wa * 100).toFixed(2), (nh3 * 100).toFixed(2)],
       ["H2O", (wb * 100).toFixed(2), (h2o * 100).toFixed(2)]
@@ -741,15 +744,17 @@ document.addEventListener("DOMContentLoaded", () => {
     liquidTableBody.innerHTML = '';    
     const gasTableBody = document.querySelector(".gas-table tbody");
     gasTableBody.innerHTML = '';
+    const gasBody = document.querySelector(".gas");
+    gasBody.innerHTML = '';
       
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(dataLiq).forEach(([key, value]) => {
       const p = document.createElement("p");
       p.textContent = ``;
       p.textContent = `${key} ${value}`;
       el2.appendChild(p);
     });
 
-    liquidData.forEach(row => {
+    liquidDataTab.forEach(row => {
         const tr = document.createElement("tr");
         row.forEach(cell => {
             const td = document.createElement("td");
@@ -760,7 +765,16 @@ document.addEventListener("DOMContentLoaded", () => {
         liquidTableBody.appendChild(tr);
     });
 
-    gasData.forEach(row => {
+    
+    Object.entries(dataGas).forEach(([key, value]) => {
+      
+      const p = document.createElement("p");
+      p.textContent = ``;
+      p.textContent = `${key} ${value}`;
+      gasBody.appendChild(p);
+    });
+
+    gasDataTab.forEach(row => {
         const tr = document.createElement("tr");
         row.forEach(cell => {
             const td = document.createElement("td");

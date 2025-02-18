@@ -12,6 +12,20 @@
 
     "substance": "Substanz",
     "btn__reset": "zurücksetzen",
-    "btn__submit": "einreichen"
+    "btn__submit": "starten",
+    "description": "Beschreibung",
+    "description1": "Der Umwandlungsrechner für den Harnstoffsynthesereaktor ist für die Berechnung der Umwandlungsrate in einem Harnstoffsynthesereaktor ausgelegt.",
+    "description2": "Die Berechnung basiert auf den folgenden Eingangsparametern:",
+    "description3": "Molares Verhältnis von Ammoniak zu CO₂ und Wasser zu CO₂ in der Syntheseschmelze.",
+    "description4": "Synthesedruck im Reaktor.",
+    "description5": "Prozentualer Anteil an Inertgasen im Reaktor.",
+    "description6": "Berechnungsergebnisse:",
+    "description7": "CO₂-Umwandlungsrate zu Harnstoff.",
+    "description8": "Gleichgewichtstemperatur, bei der der gegebene Zustand erreicht wird.",
+    "description9": "Materialbilanz:",
+    "description10": "Zusammensetzung der Flüssigphase (Syntheseschmelze).",
+    "description11": "Zusammensetzung der Gasphase (Strom, der den Reaktor verlässt).",
+    "description12": "Diese Beta-Version ist für Endnutzer-Tests vor der endgültigen Überarbeitung vorgesehen.",
+    "description13": "Für Feedback und Vorschläge beachten Sie bitte die Kontaktinformationen."
     }
   

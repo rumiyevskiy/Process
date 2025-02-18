@@ -48,9 +48,39 @@
 
                     </div>
 
-                    <div class="socials__icon">
+                    <div class="block">
+
+                        <p class="socials__icon-title">For more information on urea production, visit:</p>
+
+                        <div class="socials__icon">
+
+                            <a class="socials__icon-link" href="https://fertilizer.academy/" target="_blank">
+    
+                                
+    
+                                <img class="socials__icon-img" src="./img/logo-fa-tagline-2colors.svg" width="250" height="80"  alt="fertilizer academy" srcset="">
+    
+                            </a>  
+    
+                        </div>
+    
+                        <div class="socials__icon">
+    
+                            <a class="socials__icon-link" href="https://ureaknowhow.com/" target="_blank">
+    
+                                <img class="socials__icon-img" src="./img/logo-ukh-lite.svg" width="250" height="80"  alt="ureaknowhow" srcset="">
+    
+                            </a>  
+    
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="socials__icon">
 
                         <a class="socials__icon-link" href="https://fertilizer.academy/" target="_blank">
+
+                            <p class="socials__icon-title">For more information on urea production, visit:</p>
 
                             <img class="socials__icon-img" src="./img/logo-fa-tagline-2colors.svg" width="250" height="80"  alt="fertilizer academy" srcset="">
 
@@ -66,7 +96,7 @@
 
                         </a>  
 
-                    </div>
+                    </div> -->
                     
                 </div>
 
@@ -195,15 +225,37 @@
 
                     <div class="box-content">
 
-                        <h2 class="page__section-title" data-translate="section-1__subtitle-1">Conversion NH3 and CO2 into Urea in Reactor</h2>
+                        <h2 class="page__section-title" data-translate="section-1__subtitle-1">Urea Synthesis Reactor Conversion Calculator (Beta Version)</h2>
+
+                        <div class="page__section-description">
+                            <p data-translate="description"><b>Description:</b></p>
+                            <p data-translate="description1">The Urea Synthesis Reactor Conversion Calculator is designed to calculate the conversion rate in a urea synthesis reactor.</p>
+                            <p data-translate="description2">The calculation is based on the following input parameters:</p>
+                            <p data-translate="description3">Molar ratio of ammonia to CO₂ and water to CO₂ in the synthesis melt.</p>
+                            <p data-translate="description4">Synthesis pressure in the reactor.</p>
+                            <p data-translate="description5">Partial pressure percentage of inert gases in the reactor.</p>
+                            <p data-translate="description6">Calculation Results:</p>
+                            <p data-translate="description7">CO₂ conversion rate to urea.</p>
+                            <p data-translate="description8">Equilibrium temperature, at which the given state is achieved.</p>
+                            <p data-translate="description9">Material balance:</p>
+                            <p data-translate="description10">Composition of the liquid phase (synthesis melt).</p>
+                            <p data-translate="description11">Composition of the gas phase (stream leaving the reactor).</p>
+                            <p data-translate="description12">This beta version is intended for end-user testing before final refinement.</p>
+                            <p data-translate="description13">For feedback and suggestions, please refer to the contact information.</p>                            
+                            
+                        </div>
 
                         <div class="page__section-form">
+
+                            <div class="form-img">
+                                <img src="./img/Urea_Reactor.png" alt="">
+                            </div>
 
                             <form action="" class="form" id="form__section-1">
 
                                 <div class="form-item">
 
-                                    <label class="item-label" for="pSynthesis">P synthesis</label>
+                                    <label class="item-label" for="pSynthesis">P synthesis, bar</label>
 
                                     <input class="item-input" type="text" placeholder="P synthesis, bar" name="pSynthesis" id="pSynthesis" value="140">
 
@@ -227,15 +279,15 @@
 
                                 <div class="form-item">
 
-                                    <label class="item-label" for="pInertsPercent">P INERTS (0%..8%)</label>
+                                    <label class="item-label" for="pInertsPercent">P INERTS (0 - 8 mol%)</label>
 
-                                    <input class="item-input" type="text" placeholder="P INERTS (0%..8%)" name="pInertsPercent" id="pInertsPercent" value="8">
+                                    <input class="item-input" type="text" placeholder="P INERTS (0 - 8 mol%)" name="pInertsPercent" id="pInertsPercent" value="8">
 
                                 </div>
 
                                 <div class="form-item form__buttons">
                                     <button class="form__buttons-item" type="reset" data-translate="btn__reset">reset</button>
-                                    <button class="form__buttons-item" type="submit" data-translate="btn__submit">submit</button>
+                                    <button class="form__buttons-item" type="submit" data-translate="btn__submit">run</button>
                                 </div>
 
                             </form>
@@ -248,7 +300,7 @@
                             <div class="output-text"></div>
                             <div class="output-text2"></div>
 
-                            <h2 class="subtitle">Liquid, %</h2>
+                            <h2 class="subtitle">Liquid(Urea Synthesis Melt), %</h2>
 
                             <div class="table-container">
 
@@ -256,10 +308,10 @@
                                     <thead>
                                         <tr>
                                             <th data-translate="substance">Речовина</th>
-                                            <th>MASS %</th>
-                                            <th>MOL %</th>
-                                            <th>MASS %</th>
-                                            <th>MOL %</th>
+                                            <th>wt%</th>
+                                            <th>mol%</th>
+                                            <th>wt%</th>
+                                            <th>mol%</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -267,6 +319,7 @@
 
                             </div>
                             
+                            <p class="gas"></p>
                             
                             <h2 class="subtitle">Gas (without Inerts), %</h2>
 
@@ -276,8 +329,8 @@
                                     <thead>
                                         <tr>
                                             <th data-translate="substance">Речовина</th>
-                                            <th>MASS %</th>
-                                            <th>MOL %</th>
+                                            <th>wt%</th>
+                                            <th>mol%</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
@@ -299,45 +352,31 @@
     
         <footer class="footer">
 
-            <div class="socials">
+            <div class="footer__body">
 
-                <div class="socials__ico">
-                    <a href="https://t.me/+380679249959" target="_blank">
-                        <img src="./img/icons/telegram_icon.svg"  alt="" srcset="">
-                    </a>                    
+                <div class="footer__description">
+                    Web Design & Development:
                 </div>
 
-                <div class="socials__ico">
-                    <a href="viber://chat?number=%2B380679249959" target="_blank">
-                        <img src="./img/icons/viber_icon.svg"  alt="" srcset="">
-                    </a>                    
+                <div class="socials">
+
+                    <div class="socials__ico">
+                        <a href="https://t.me/+380679249959" target="_blank">
+                            <img src="./img/icons/telegram_icon.svg" width="30" height="30" alt="" srcset="">
+                        </a>                    
+                    </div>
+
+                    <div class="socials__ico">
+                        <a href="mailto:rumiyevskiy@gmail.com" target="_blank">
+                            <img src="./img/icons/email__icon.png" width="30" height="30" alt="" srcset="">
+                        </a>                    
+                    </div>
+                    
                 </div>
 
-                <div class="socials__ico">
-                    <a href="https://wa.me/+380679249959" target="_blank">
-                        <img src="./img/icons/whatsapp_icon.svg"  alt="" srcset="">
-                    </a>                    
-                </div>
-
-                <!-- <div class="socials__ico">
-                    <a href="https://www.facebook.com/nabir.solodoshiv" target="_blank">
-                        <img src="./img/icons/facebookIcon.svg"  alt="" srcset="">
-                    </a>                    
-                </div> -->
-
-                <!-- <div class="socials__ico">
-                    <a href="https://www.instagram.com/nabir_solodoshiv/" target="_blank">
-                        <img src="./img/icons/instagramIcon.svg"  alt="" srcset="">
-                    </a>                    
-                </div> -->
-
-                <div class="socials__ico">
-                    <a href="https://youtube.com/@MaS" target="_blank">
-                        <img src="./img/icons/youtubeIcon.svg"  alt="" srcset="">
-                    </a>                    
-                </div>
-                
             </div>
+
+            
 
         </footer>
 

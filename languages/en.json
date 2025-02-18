@@ -11,8 +11,23 @@
 
     "section-1__subtitle-1": "Conversion NH3 and CO2 into Urea in Reactor",
 
-    "substance": "Substance",
+    "substance": "Component",
     "btn__reset": "reset",
-    "btn__submit": "submit"
+    "btn__submit": "run",
+    "description": "Description",
+    "description1": "The Urea Synthesis Reactor Conversion Calculator is designed to calculate the conversion rate in a urea synthesis reactor.",
+    "description2": "The calculation is based on the following input parameters:",
+    "description3": "Molar ratio of ammonia to CO₂ and water to CO₂ in the synthesis melt.",
+    "description4": "Synthesis pressure in the reactor.",
+    "description5": "Partial pressure percentage of inert gases in the reactor.",
+    "description6": "Calculation Results:",
+    "description7": "CO₂ conversion rate to urea.",
+    "description8": "Equilibrium temperature, at which the given state is achieved.",
+    "description9": "Material balance:",
+    "description10": "Composition of the liquid phase (synthesis melt).",
+    "description11": "Composition of the gas phase (stream leaving the reactor).",
+    "description12": "This beta version is intended for end-user testing before final refinement.",
+    "description13": "For feedback and suggestions, please refer to the contact information."
+
   }
   
