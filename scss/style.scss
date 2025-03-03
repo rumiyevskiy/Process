@@ -357,25 +357,31 @@ body {
         }
     }
 
-    .block {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        p {
-            text-align: center;
-            color: #ffffff;
-            font-size: 18px;
-        }
-    }
-
     @include rmax($xl) {
         margin-right: 0;
 
         justify-content: center;
     }
+}
+
+.block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: var(--headerBgColor);
+
+    padding-block: 20px;
+
+    p {
+        text-align: center;
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+
 }
 
 
@@ -407,7 +413,8 @@ body {
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
-            padding: 306px 30px 30px 30px;
+            padding: 90px 30px 30px 30px;
+            // padding: 306px 30px 30px 30px;
             transition: left 0.3s ease 0s;
 
             overflow: auto;
@@ -418,7 +425,8 @@ body {
                 width: 100%;
                 top: 0;
                 left: 0;
-                height: 306px;
+                height: 80px;
+                // height: 306px;
                 z-index: 2;
                 background-color: var(--headerBgColor);
             }
@@ -567,15 +575,15 @@ body {
     padding: 100px 10px 10px 10px;
 
     @include rmax(1577) {
-        padding: 170px 10px 10px 10px;
+        // padding: 170px 10px 10px 10px;
     }
 
     @include rmax(1260) {
-        padding: 260px 10px 10px 10px;
+        // padding: 260px 10px 10px 10px;
     }
 
     @include rmax($lg) {
-        padding: 306px 10px 10px 10px;
+        // padding: 306px 10px 10px 10px;
     }
 }
 
