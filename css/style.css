@@ -618,7 +618,15 @@ body.__touch .header__menu-list > li.__active .header__menu-item-arrow {
   flex-wrap: wrap;
   gap: 10px;
 }
+.footer__description {
+  font-size: 20px;
+}
 .footer .socials {
-  max-width: 120px;
+  max-width: 50%;
   justify-content: space-around;
+}
+@media (max-width: 768px) {
+  .footer .socials {
+    max-width: 100%;
+  }
 }
